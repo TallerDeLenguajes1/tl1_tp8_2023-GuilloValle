@@ -1,0 +1,15 @@
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\bin\Debug\net7.0\tl1_tp8_2023-GuilloValle.exe
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\bin\Debug\net7.0\tl1_tp8_2023-GuilloValle.deps.json
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\bin\Debug\net7.0\tl1_tp8_2023-GuilloValle.runtimeconfig.json
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\bin\Debug\net7.0\tl1_tp8_2023-GuilloValle.dll
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\bin\Debug\net7.0\tl1_tp8_2023-GuilloValle.pdb
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.csproj.AssemblyReference.cache
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.AssemblyInfoInputs.cache
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.AssemblyInfo.cs
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.csproj.CoreCompileInputs.cache
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.dll
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\refint\tl1_tp8_2023-GuilloValle.dll
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.pdb
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\tl1_tp8_2023-GuilloValle.genruntimeconfig.cache
+C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle\obj\Debug\net7.0\ref\tl1_tp8_2023-GuilloValle.dll
