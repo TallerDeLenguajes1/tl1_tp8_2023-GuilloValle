@@ -12,18 +12,27 @@ internal class Program
 
         MostarLista(TareasPendientes);
         MoverTareas(TareasPendientes, TareasRealizadas);
-        BuscarPorDescripcion(TareasPendientes);
+       // BuscarPorDescripcion(TareasPendientes);
+
+        var archivo = new StreamWriter("Horas-Trabajadas.csv");
+        int SumHorasTrabajadas = 0;
+        foreach (var item in TareasRealizadas)
+        {
+            SumHorasTrabajadas += item.Duracion;
+        }
+
+        archivo.WriteLine("Horas trabajadas = " + SumHorasTrabajadas);
+        archivo.Close();
 
     }
 
     private static void BuscarPorDescripcion(List<Tarea> TareasPendientes)
     {
         System.Console.WriteLine("INGRESE LA DESCRIPCION A BUSCAR: ");
+        string DescABuscar = Console.ReadLine();
 
         foreach (Tarea Tar in TareasPendientes)
         {
-
-            string DescABuscar = Console.ReadLine();
 
             if (DescABuscar == Tar.Descripcion)
             {
@@ -32,7 +41,6 @@ internal class Program
                 Console.WriteLine("Duracion = " + Tar.Duracion);
                 System.Console.WriteLine("--------------");
             }
-
 
         }
     }
