@@ -1,112 +1,94 @@
-﻿using clases;
+﻿
 internal class Program
 {
     private static void Main(string[] args)
     {
-        int numDeTareas = GenerarNumeroAleatorio(1, 10);
 
-        List<Tarea> TareasPendientes = new List<Tarea>();
-        List<Tarea> TareasRealizadas = new List<Tarea>();
+         string carpetaPath = @"C:\Users\Guillo\Desktop\taller1\tl1_tp8_2023-GuilloValle"; // Reemplaza con la ruta de la carpeta que deseas listar
 
-        CargarLista(numDeTareas, TareasPendientes);
+        // if (Directory.Exists(carpetaPath))
+        // {
+        //     string[] archivos = Directory.GetFiles(carpetaPath);
 
-        MostarLista(TareasPendientes);
-        MoverTareas(TareasPendientes, TareasRealizadas);
-       // BuscarPorDescripcion(TareasPendientes);
+        //     Console.WriteLine("Archivos encontrados:");
 
-        var archivo = new StreamWriter("Horas-Trabajadas.csv");
-        int SumHorasTrabajadas = 0;
-        foreach (var item in TareasRealizadas)
+        //     foreach (string archivo in archivos)
+        //     {
+        //         Console.WriteLine(archivo);
+        //     }
+        // }
+        // else
+        // {
+        //     Console.WriteLine("La carpeta no existe.");
+        // }
+
+        
+
+
+        // if (Directory.Exists(carpetaPath))
+        // {
+        //     string[] archivos = Directory.GetFiles(carpetaPath);
+
+        //     Console.WriteLine("Archivos encontrados:");
+
+        //     foreach (string archivo in archivos)
+        //     {
+        //         string nombreArchivo = Path.GetFileName(archivo);
+        //         Console.WriteLine(nombreArchivo);
+        //     }
+
+        // using (StreamWriter archivoCSV = new StreamWriter("index.csv"))   CON EL USINGNO HACE FALTA HACER EL CLOSE DESPUES, CUANDO SALE DEL USING SE CIERRA SOLO
+        //     {
+        //         archivoCSV.WriteLine("Índice,Nombre,Extensión"); // Escribir la línea de encabezado en el archivo CSV
+
+        //         for (int i = 0; i < archivos.Length; i++)
+        //         {
+        //             string nombreArchivo = Path.GetFileName(archivos[i]); // Obtener el nombre del archivo
+        //             string extensionArchivo = Path.GetExtension(archivos[i]); // Obtener la extensión del archivo
+
+        //             archivoCSV.WriteLine($"{i + 1},{nombreArchivo},{extensionArchivo}"); // Escribir los datos en el archivo CSV
+
+        //             Console.WriteLine($"{i + 1}. {nombreArchivo} ({extensionArchivo})");
+        //         }
+        //     }
+
+        //     Console.WriteLine("Listado de archivos guardado en index.csv");
+
+            
+        // }
+        // else
+        // {
+        //     Console.WriteLine("La carpeta no existe.");
+        // }
+
+
+        string[] archivos = Directory.GetFiles(carpetaPath);
+
+        // Crear un nuevo archivo "index.csv" en el directorio actual para escribir los datos
+        StreamWriter archivoCSV = new StreamWriter("index.csv");
+        archivoCSV.WriteLine("Índice,Nombre,Extensión"); // Escribir la línea de encabezado en el archivo CSV
+
+        for (int i = 0; i < archivos.Length; i++)
         {
-            SumHorasTrabajadas += item.Duracion;
+            string nombreArchivo = Path.GetFileName(archivos[i]); // Obtener el nombre del archivo
+            string extensionArchivo = Path.GetExtension(archivos[i]); // Obtener la extensión del archivo
+
+            archivoCSV.WriteLine($"{i + 1},{nombreArchivo},{extensionArchivo}"); // Escribir los datos en el archivo CSV
+
+            Console.WriteLine($"{i + 1}. {nombreArchivo}");
         }
 
-        archivo.WriteLine("Horas trabajadas = " + SumHorasTrabajadas);
-        archivo.Close();
+        archivoCSV.Close(); // Cerrar el archivo después de terminar de escribir en él
+
+        Console.WriteLine("Listado de archivos guardado en index.csv");
+        Console.ReadLine();
+
+
 
     }
 
-    private static void BuscarPorDescripcion(List<Tarea> TareasPendientes)
-    {
-        System.Console.WriteLine("INGRESE LA DESCRIPCION A BUSCAR: ");
-        string DescABuscar = Console.ReadLine();
-
-        foreach (Tarea Tar in TareasPendientes)
-        {
-
-            if (DescABuscar == Tar.Descripcion)
-            {
-                Console.WriteLine("Id = " + Tar.Id);
-                Console.WriteLine("Descripcion = " + Tar.Descripcion);
-                Console.WriteLine("Duracion = " + Tar.Duracion);
-                System.Console.WriteLine("--------------");
-            }
-
-        }
-    }
-
-    private static void MoverTareas(List<Tarea> TareasPendientes, List<Tarea> TareasRealizadas)
-    {
-        foreach (Tarea Tar in TareasPendientes)
-        {
-            System.Console.WriteLine("SE REALIZO ESTA TAREA s = SI n = NO?");
-
-            Console.WriteLine("Id = " + Tar.Id);
-            Console.WriteLine("Descripcion = " + Tar.Descripcion);
-            Console.WriteLine("Duracion = " + Tar.Duracion);
-            System.Console.WriteLine("--------------");
-
-            string realizada = Console.ReadLine();
-            if (realizada == "s")
-            {
-                TareasRealizadas.Add(Tar);
-            }
-
-        }
-
-        foreach (var item in TareasRealizadas)
-        {
-            TareasPendientes.Remove(item);
-        }
-
-        System.Console.WriteLine("-------- TAREAS PENDIENTES ------------");
-        MostarLista(TareasPendientes);
-
-        System.Console.WriteLine("--------------------");
-
-        System.Console.WriteLine("-------- TAREAS REALIZADAS ------------");
-        MostarLista(TareasRealizadas);
-    }
-
-    private static void CargarLista(int numDeTareas, List<Tarea> TareasPendientes)
-    {
-        for (int i = 1; i <= numDeTareas; i++)
-        {
-            var Tarea1 = new Tarea(i, "hola", GenerarNumeroAleatorio(1, 10));
-            TareasPendientes.Add(Tarea1);
-        }
-    }
-
-    private static void MostarLista(List<Tarea> TareasPendientes)
-    {
-        Console.WriteLine("Elementos de la lista:");
-        foreach (Tarea Tar in TareasPendientes)
-        {
-            Console.WriteLine("Id = " + Tar.Id);
-            Console.WriteLine("Descripcion = " + Tar.Descripcion);
-            Console.WriteLine("Duracion = " + Tar.Duracion);
-            System.Console.WriteLine("--------------");
-
-
-        }
-    }
-
-    public static int GenerarNumeroAleatorio(int min, int max)
-    {
-        Random random = new Random();
-        int numeroAleatorio = random.Next(min, max); // Genera un número aleatorio dentro del rango especificado
-        return numeroAleatorio;
-    }
+}
 
     
-}
+
+    
